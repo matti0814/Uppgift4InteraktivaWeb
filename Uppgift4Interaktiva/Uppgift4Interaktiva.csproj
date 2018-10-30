@@ -239,7 +239,7 @@
     <Content Include="Views\TvPrograms\Details.cshtml" />
     <Content Include="Views\TvPrograms\Edit.cshtml" />
     <Content Include="Views\TvPrograms\Index.cshtml" />
-    <Content Include="Views\TvPrograms\Consumer\Startpage.cshtml" />
+    <Content Include="Views\TvPrograms\View.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
