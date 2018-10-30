@@ -1,0 +1,138 @@
+﻿@model Uppgift4Interaktiva.Models.ViewModels.ChannelLists
+
+@{
+    ViewBag.Title = "Startpage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>@Html.DisplayFor(modelItem => Model.SVT1[0].Channel)</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    <p>Program</p>
+                </th>
+                <th>
+                    <p>Tid</p>
+                </th>
+            </tr>
+            @foreach (var item in Model.SVT1)
+            {
+                <tr>
+                    <td>
+                        @item.Start.ToShortTimeString()
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-md-3">
+        <h2>@Html.DisplayFor(modelItem => Model.SVT2[0].Channel)</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    <p>Program</p>
+                </th>
+                <th>
+                    <p>Tid</p>
+                </th>
+            </tr>
+            @foreach (var item in Model.SVT2)
+            {
+                <tr>
+                    <td>
+                        @item.Start.ToShortTimeString()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-md-3">
+        <h2>@Html.DisplayFor(modelItem => Model.TV3[0].Channel)</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    <p>Program</p>
+                </th>
+                <th>
+                    <p>Tid</p>
+                </th>
+            </tr>
+            @foreach (var item in Model.TV3)
+            {
+                <tr>
+                    <td>
+                        @item.Start.ToShortTimeString()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-md-3">
+        <h2>@Html.DisplayFor(modelItem => Model.TV4[0].Channel)</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    <p>Program</p>
+                </th>
+                <th>
+                    <p>Tid</p>
+                </th>
+            </tr>
+            @foreach (var item in Model.TV4)
+            {
+                <tr>
+                    <td>
+                        @item.Start.ToShortTimeString()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-md-3">
+        <h2>@Html.DisplayFor(modelItem => Model.TV6[0].Channel)</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    <p>Program</p>
+                </th>
+                <th>
+                    <p>Tid</p>
+                </th>
+            </tr>
+            @foreach (var item in Model.TV6)
+            {
+                <tr>
+                    <td>
+                        @item.Start.ToShortTimeString()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</div>
+

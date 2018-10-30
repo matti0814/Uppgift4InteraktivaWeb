@@ -180,6 +180,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TvProgramModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ChannelLists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -239,7 +240,7 @@
     <Content Include="Views\TvPrograms\Details.cshtml" />
     <Content Include="Views\TvPrograms\Edit.cshtml" />
     <Content Include="Views\TvPrograms\Index.cshtml" />
-    <Content Include="Views\User\View.cshtml" />
+    <Content Include="Views\TvPrograms\Startpage.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -303,6 +304,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\TvPrograms\User\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
