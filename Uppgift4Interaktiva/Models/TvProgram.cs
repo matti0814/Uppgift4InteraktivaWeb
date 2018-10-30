@@ -11,15 +11,22 @@ namespace Uppgift4Interaktiva.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TvProgram
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Genre { get; set; }
-        public Nullable<System.DateTime> Start { get; set; }
-        public Nullable<System.DateTime> Stop { get; set; }
+
+        public System.DateTime Start { get; set; }
+     
+        public System.DateTime Stop { get; set; }
         public string Channel { get; set; }
         public string Info { get; set; }
+
+     
+   
     }
+   
 }

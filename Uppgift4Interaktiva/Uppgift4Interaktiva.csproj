@@ -180,6 +180,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TvProgramModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ChannelLists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

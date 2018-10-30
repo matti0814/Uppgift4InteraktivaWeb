@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Uppgift4Interaktiva.Models;
+using Uppgift4Interaktiva.Models.ViewModels;
 
 namespace Uppgift4Interaktiva.Controllers
 {
@@ -23,7 +24,13 @@ namespace Uppgift4Interaktiva.Controllers
 
         public ActionResult Startpage()
         {
-            return View(db.TvProgram.ToList());
+            var allChannelList = new ChannelLists();
+            allChannelList.ShowSVT1();
+            allChannelList.ShowSVT2();
+            allChannelList.ShowTV3();
+            allChannelList.ShowTV4();
+            allChannelList.ShowTV6();
+            return View(allChannelList);
         }
 
         // GET: TvPrograms/Details/5
