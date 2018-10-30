@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uppgift4Interaktiva", "Uppgift4Interaktiva\Uppgift4Interaktiva.csproj", "{727D7082-CB6A-4790-945D-0A79814A25CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{727D7082-CB6A-4790-945D-0A79814A25CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727D7082-CB6A-4790-945D-0A79814A25CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727D7082-CB6A-4790-945D-0A79814A25CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{727D7082-CB6A-4790-945D-0A79814A25CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {791AB59E-9C3A-47F7-B00A-84EBAF1740C4}
+	EndGlobalSection
+EndGlobal
