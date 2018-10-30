@@ -20,6 +20,12 @@ namespace Uppgift4Interaktiva.Controllers
             return View(db.TvProgram.ToList());
         }
 
+
+        public ActionResult Startpage()
+        {
+            return View(db.TvProgram.ToList());
+        }
+
         // GET: TvPrograms/Details/5
         public ActionResult Details(int? id)
         {
