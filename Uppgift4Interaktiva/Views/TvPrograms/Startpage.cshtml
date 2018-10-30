@@ -5,21 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <div class="row">
     <div class="col-md-3">
         <h2>@Html.DisplayFor(modelItem => Model.SVT1[0].Channel)</h2>
         <table class="table">
-            <tr>
-                <th>
-                    <p>Program</p>
-                </th>
-                <th>
-                    <p>Tid</p>
-                </th>
-            </tr>
+
             @foreach (var item in Model.SVT1)
             {
                 <tr>
@@ -29,6 +20,10 @@
                     <td>
                         @item.Name
                     </td>
+                    <td>
+                        <p class="MyModal">@Html.ActionLink("Länkjävel", "Details", new { id = item.Id })</p>
+                    </td>
+
                 </tr>
             }
         </table>
@@ -37,14 +32,7 @@
     <div class="col-md-3">
         <h2>@Html.DisplayFor(modelItem => Model.SVT2[0].Channel)</h2>
         <table class="table">
-            <tr>
-                <th>
-                    <p>Program</p>
-                </th>
-                <th>
-                    <p>Tid</p>
-                </th>
-            </tr>
+
             @foreach (var item in Model.SVT2)
             {
                 <tr>
@@ -62,14 +50,7 @@
     <div class="col-md-3">
         <h2>@Html.DisplayFor(modelItem => Model.TV3[0].Channel)</h2>
         <table class="table">
-            <tr>
-                <th>
-                    <p>Program</p>
-                </th>
-                <th>
-                    <p>Tid</p>
-                </th>
-            </tr>
+
             @foreach (var item in Model.TV3)
             {
                 <tr>
@@ -87,14 +68,7 @@
     <div class="col-md-3">
         <h2>@Html.DisplayFor(modelItem => Model.TV4[0].Channel)</h2>
         <table class="table">
-            <tr>
-                <th>
-                    <p>Program</p>
-                </th>
-                <th>
-                    <p>Tid</p>
-                </th>
-            </tr>
+
             @foreach (var item in Model.TV4)
             {
                 <tr>
@@ -112,14 +86,7 @@
     <div class="col-md-3">
         <h2>@Html.DisplayFor(modelItem => Model.TV6[0].Channel)</h2>
         <table class="table">
-            <tr>
-                <th>
-                    <p>Program</p>
-                </th>
-                <th>
-                    <p>Tid</p>
-                </th>
-            </tr>
+
             @foreach (var item in Model.TV6)
             {
                 <tr>
@@ -133,6 +100,32 @@
             }
         </table>
     </div>
+
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">Programinfo</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 
 </div>
 
