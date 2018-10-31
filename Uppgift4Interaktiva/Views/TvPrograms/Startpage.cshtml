@@ -8,107 +8,183 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <div class="row">
 
-    <div class="col-md-3">    
-        <h2>@Html.DisplayFor(modelItem => Model.SVT1[0].Channel)</h2>
-        <table class="table">
-            @foreach (var item in Model.SVT1)
-            {
-                <tr>
-                    <td>
-                        @item.Start.ToShortTimeString()
-                    </td>
-                    <td>
-                        @item.Name
-                    </td>
-                    <td>
-                        @Html.ActionLink("Info", "Details", new { id = item.Id })
-                    </td>
-                </tr>
-            }
-        </table>
+
+    <div class="col-sm-12 col-md-4 ">
+        <div class="card bg-light mb-3">
+            <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.SVT1[0].Channel)</h4></div>
+            <div class="card-body text-center">
+                <h5 class="card-title">Idag</h5>
+                <table class="table">
+                    <tr>
+                        <th>
+                            <p>Tid</p>
+                        </th>
+                        <th>
+                            <p>Program</p>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.SVT1)
+                    {
+                        <tr>
+                            <td>
+                                @item.Start.ToShortTimeString()
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 ">
+        <div class="card bg-light mb-3">
+            <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.SVT2[0].Channel)</h4></div>
+            <div class="card-body text-center">
+                <h5 class="card-title">Idag</h5>
+                <table class="table">
+                    <tr>
+                        <th>
+                            <p>Tid</p>
+                        </th>
+                        <th>
+                            <p>Program</p>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.SVT2)
+                    {
+                        <tr>
+                            <td>
+                                @item.Start.ToShortTimeString()
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 ">
+        <div class="card bg-light mb-3">
+            <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.TV3[0].Channel)</h4></div>
+            <div class="card-body text-center">
+                <h5 class="card-title">Idag</h5>
+                <table class="table">
+                    <tr>
+                        <th>
+                            <p>Tid</p>
+                        </th>
+                        <th>
+                            <p>Program</p>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.TV3)
+                    {
+                        <tr>
+                            <td>
+                                @item.Start.ToShortTimeString()
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 ">
+        <div class="card bg-light mb-3">
+            <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.TV4[0].Channel)</h4></div>
+            <div class="card-body text-center">
+                <h5 class="card-title">Idag</h5>
+                <table class="table">
+                    <tr>
+                        <th>
+                            <p>Tid</p>
+                        </th>
+                        <th>
+                            <p>Program</p>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.TV4)
+                    {
+                        <tr>
+                            <td>
+                                @item.Start.ToShortTimeString()
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 ">
+        <div class="card bg-light mb-3">
+            <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.TV6[0].Channel)</h4></div>
+            <div class="card-body text-center">
+                <h5 class="card-title">Idag</h5>
+                <table class="table">
+                    <tr>
+                        <th>
+                            <p>Tid</p>
+                        </th>
+                        <th>
+                            <p>Program</p>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.TV6)
+                    {
+                        <tr>
+                            <td>
+                                @item.Start.ToShortTimeString()
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
     </div>
 
 
 
-    <div class="col-md-3">
-        <h2>@Html.DisplayFor(modelItem => Model.SVT2[0].Channel)</h2>
-        <table class="table">
 
-            @foreach (var item in Model.SVT2)
-            {
-                <tr>
-                    <td>
-                        @item.Start.ToShortTimeString()
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
 
-    <div class="col-md-3">
-        <h2>@Html.DisplayFor(modelItem => Model.TV3[0].Channel)</h2>
-        <table class="table">
 
-            @foreach (var item in Model.TV3)
-            {
-                <tr>
-                    <td>
-                        @item.Start.ToShortTimeString()
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
 
-    <div class="col-md-3">
-        <h2>@Html.DisplayFor(modelItem => Model.TV4[0].Channel)</h2>
-        <table class="table">
+    
 
-            @foreach (var item in Model.TV4)
-            {
-                <tr>
-                    <td>
-                        @item.Start.ToShortTimeString()
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
-
-    <div class="col-md-3">
-        <h2>@Html.DisplayFor(modelItem => Model.TV6[0].Channel)</h2>
-        <table class="table">
-
-            @foreach (var item in Model.TV6)
-            {
-                <tr>
-                    <td>
-                        @item.Start.ToShortTimeString()
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
- 
     <script>
         function showModal(id) {
             var avföring = id;
-            document.getElementById("#modaltext").innerHTML = avföring;      
+            document.getElementById("#modaltext").innerHTML = avföring;
         };
     </script>
-    
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Launch demo modal
@@ -125,7 +201,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p id="modaltext">Skit</p>                   
+                    <p id="modaltext">Skit</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
