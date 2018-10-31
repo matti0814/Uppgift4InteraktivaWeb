@@ -16,8 +16,15 @@ namespace Uppgift4Interaktiva.Models.ViewModels
         public List<TvProgram> TV3 { get; set; } = new List<TvProgram>();
         public List<TvProgram> TV4 { get; set; } = new List<TvProgram>();
         public List<TvProgram> TV6 { get; set; } = new List<TvProgram>();
+        public List<TvProgram> AllShows { get; set; } = new List<TvProgram>();
 
 
+        public List<TvProgram> ReturnAllShows()
+        {
+            var templist = from p in db.TvProgram select p;
+            AllShows = templist.ToList();
+            return templist.ToList();
+        }
         public List<TvProgram> ShowSVT1 ()
         {
             var templist = from p in db.TvProgram where p.Channel == "SVT1" select p;
@@ -49,7 +56,15 @@ namespace Uppgift4Interaktiva.Models.ViewModels
             return TV6.ToList();
         }
 
-        
+        public void CreateAllLists()
+        {
+            ReturnAllShows();
+            ShowSVT1();
+            ShowSVT2();
+            ShowTV3();
+            ShowTV4();
+            ShowTV6();
+        }
 
      
 

@@ -7,10 +7,10 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <div class="row">
-    <div class="col-md-3">
+
+    <div class="col-md-3">    
         <h2>@Html.DisplayFor(modelItem => Model.SVT1[0].Channel)</h2>
         <table class="table">
-
             @foreach (var item in Model.SVT1)
             {
                 <tr>
@@ -21,13 +21,14 @@
                         @item.Name
                     </td>
                     <td>
-                        <p class="MyModal">@Html.ActionLink("Länkjävel", "Details", new { id = item.Id })</p>
+                        @Html.ActionLink("Info", "Details", new { id = item.Id })
                     </td>
-
                 </tr>
             }
         </table>
     </div>
+
+
 
     <div class="col-md-3">
         <h2>@Html.DisplayFor(modelItem => Model.SVT2[0].Channel)</h2>
@@ -100,7 +101,13 @@
             }
         </table>
     </div>
-
+ 
+    <script>
+        function showModal(id) {
+            var avföring = id;
+            document.getElementById("#modaltext").innerHTML = avföring;      
+        };
+    </script>
     
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -118,7 +125,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <p id="modaltext">Skit</p>                   
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -129,4 +136,6 @@
     </div>
 
 </div>
+
+
 

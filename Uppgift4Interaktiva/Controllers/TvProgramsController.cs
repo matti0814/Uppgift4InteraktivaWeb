@@ -25,11 +25,7 @@ namespace Uppgift4Interaktiva.Controllers
         public ActionResult Startpage()
         {
             var allChannelList = new ChannelLists();
-            allChannelList.ShowSVT1();
-            allChannelList.ShowSVT2();
-            allChannelList.ShowTV3();
-            allChannelList.ShowTV4();
-            allChannelList.ShowTV6();
+            allChannelList.CreateAllLists();
             return View(allChannelList);
         }
 
