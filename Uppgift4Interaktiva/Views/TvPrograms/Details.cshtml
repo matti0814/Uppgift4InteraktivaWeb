@@ -3,77 +3,87 @@
 @{
     ViewBag.Title = "Details";
 }
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
-    </button>
-    <h4 class="modal-title">Details Record</h4>
+
+<div class="container" id="meinModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="false"><i class="fa fa-times-circle"></i></span>
+            </button>
+            <h4 class="modal-title">Details</h4>
+        </div>
+        <div class="modal-body">
+
+            <h2>Details</h2>
+            <div>
+                <h4>TvProgram</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Genre)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Genre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Start)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Start)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Stop)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Stop)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Channel)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Channel)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Info)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Info)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>              
+                @Html.ActionLink("Stäng", "Startpage")
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+                    onclick="close()">
+                Stäng
+            </button>
+            <script>
+                function close() {
+                    $("#meinModal").modal("hide"); 
+                }
+                
+            </script>
+        </div>
+    </div>
 </div>
-<div class="modal-body">
-
-    <h2>Details</h2>
-
-    <div>
-        <h4>TvProgram</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Genre)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Genre)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Start)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Start)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Stop)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Stop)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Channel)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Channel)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Info)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Info)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default"
-                data-dismiss="modal">
-            Close
-        </button>
-    </div>

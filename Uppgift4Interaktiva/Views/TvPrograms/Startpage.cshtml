@@ -5,27 +5,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $("#showinfo").click(function () {
+
+            var url = $("#myModal").data('url');
+            $.get(url, function (data) {
+
+                $("#myModal").html(data);
+                $("#myModal").modal('show');
+
+            });
+        });
+
+    });
+</script>
+
 <div class="row">
-
-
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.SVT1[0].Channel)</h4></div>
             <div class="card-body text-center">
                 <h5 class="card-title">Idag</h5>
                 <table class="table">
-                    <tr>
-                        <th>
-                            <p>Tid</p>
-                        </th>
-                        <th>
-                            <p>Program</p>
-                        </th>
-                    </tr>
+
                     @foreach (var item in Model.SVT1)
                     {
+                        var idIn = item.Id;
                         <tr>
+
                             <td>
                                 @item.Start.ToShortTimeString()
                             </td>
@@ -33,11 +42,17 @@
                                 @item.Name
                             </td>
                             <td>
-                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+                                <div class="modal fade" id="myModal" role="dialog" data-url='@Url.Action("Details", "TvPrograms", new { id = item.Id })'></div>
+                                <button type="button" id="showinfo" class="btn btn-outline-dark">
+                                    Info
+                                </button>
                             </td>
                         </tr>
+
                     }
+
                 </table>
+
             </div>
         </div>
     </div>
@@ -56,7 +71,7 @@
                         </th>
                     </tr>
                     @foreach (var item in Model.SVT2)
-                    {
+                    {                        
                         <tr>
                             <td>
                                 @item.Start.ToShortTimeString()
@@ -65,8 +80,13 @@
                                 @item.Name
                             </td>
                             <td>
-                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+
+                                <button type="button" id="showinfo" class="btn btn-outline-dark">
+                                    Info
+                                </button>
+                                <div class="modal fade" id="myModal" role="dialog" data-url='@Url.Action("Details", "TvPrograms", new { id = item.Id })'></div>
                             </td>
+
                         </tr>
                     }
                 </table>
@@ -97,7 +117,10 @@
                                 @item.Name
                             </td>
                             <td>
-                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+
+                                <button type="button" id="showinfo" class="btn btn-outline-dark" onclick="location.href='@Url.Action("Details", "TvPrograms", new { id = item.Id })'">
+                                    Info
+                                </button>
                             </td>
                         </tr>
                     }
@@ -129,7 +152,9 @@
                                 @item.Name
                             </td>
                             <td>
-                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+                                <button type="button" id="showinfo" class="btn btn-outline-dark" onclick="location.href='@Url.Action("Details", "TvPrograms", new { id = item.Id })'">
+                                    Info
+                                </button>
                             </td>
                         </tr>
                     }
@@ -161,7 +186,9 @@
                                 @item.Name
                             </td>
                             <td>
-                                @Html.ActionLink("Info", "Details", new { id = item.Id })
+                                <button type="button" id="showinfo" class="btn btn-outline-dark" onclick="location.href='@Url.Action("Details", "TvPrograms", new { id = item.Id })'">
+                                    Info
+                                </button>
                             </td>
                         </tr>
                     }
@@ -169,40 +196,11 @@
             </div>
         </div>
     </div>
- 
 
-    <script>
-        function showModal(id) {
-            var avföring = id;
-            document.getElementById("#modaltext").innerHTML = avföring;
-        };
-    </script>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Launch demo modal
-    </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p id="modaltext">Skit</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
 
 </div>
 
