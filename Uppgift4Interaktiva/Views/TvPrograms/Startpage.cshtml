@@ -35,6 +35,9 @@
                 '<b>Slutar: </b>' + endtime + '</br></br>' +
                 '<b>Programinfo: </b></br>' + '<small>' + info + '</small>',
 
+
+
+
             callback: function (result) {
                 console.log('This was logged in the callback: ' + result);
             }
@@ -42,23 +45,19 @@
     }
 </script>
 
-<div class="jumbotron">
-    <h1>TV-KOLLEN</h1>
-    <p class="lead">Tv-kollen är internets bästa guide för vilka TVprogram som går!</p>
-</div>
 
 <div class="row">
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.SVT1[0].Channel)</h4></div>
             <div class="card-body text-center table-responsive-lg">
                 <h5 class="card-title">Idag</h5>
-
                 <table class="table">
 
                     @foreach (var item in Model.SVT1)
                     {
                         <tr>
+
                             <td>
                                 @item.Start.ToShortTimeString()
                             </td>
@@ -75,16 +74,24 @@
                     }
 
                 </table>
+
             </div>
-            
         </div>
     </div>
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.SVT2[0].Channel)</h4></div>
             <div class="card-body text-center table-responsive-lg">
                 <h5 class="card-title">Idag</h5>
-                <table class="table">                   
+                <table class="table">
+                    <tr>
+                        <th>
+                            <p>Tid</p>
+                        </th>
+                        <th>
+                            <p>Program</p>
+                        </th>
+                    </tr>
                     @foreach (var item in Model.SVT2)
                     {
                         <tr>
@@ -106,43 +113,56 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
-            <div class="card-header text-center">
-                <h4>@Html.DisplayFor(modelItem => Model.TV3[0].Channel)</h4>              
-            </div>           
-                <div class="card-body text-center table-responsive-lg">
-                    <h5 class="card-title">Idag</h5>
-                    <table class="table">                       
-                        @foreach (var item in Model.TV3)
-                        {
-                            var modalname = item.Start;
+            <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.TV3[0].Channel)</h4></div>
+            <div class="card-body text-center table-responsive-lg">
+                <h5 class="card-title">Idag</h5>
+                <table class="table">
+                    <tr>
+                        <th>
+                            <p>Tid</p>
+                        </th>
+                        <th>
+                            <p>Program</p>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.TV3)
+                    {
+                        var modalname = item.Start;
 
-                            <tr>
-                                <td>
-                                    @item.Start.ToShortTimeString()
-                                </td>
-                                <td>
-                                    @item.Name
-                                </td>
-                                <td>
-                                    <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
-                                        Info
-                                    </button>
-                                </td>
-                            </tr>
-                        }
-                    </table>
-                </div>
+                        <tr>
+                            <td>
+                                @item.Start.ToShortTimeString()
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
+                                    Info
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </table>
             </div>
         </div>
-        </div>
-    <div class="col-sm-12 col-md-4">
+    </div>
+    <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.TV4[0].Channel)</h4></div>
             <div class="card-body text-center table-responsive-lg">
                 <h5 class="card-title">Idag</h5>
-                <table class="table">                    
+                <table class="table">
+                    <tr>
+                        <th>
+                            <p>Tid</p>
+                        </th>
+                        <th>
+                            <p>Program</p>
+                        </th>
+                    </tr>
                     @foreach (var item in Model.TV4)
                     {
 
@@ -164,16 +184,25 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-5">
+    <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.TV6[0].Channel)</h4></div>
             <div class="card-body text-center table-responsive-lg">
                 <h5 class="card-title">Idag</h5>
-                <table class="table">                   
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            <p>Tid</p>
+                        </th>
+                        <th>
+                            <p>Program</p>
+                        </th>
+                    </tr>
                     @foreach (var item in Model.TV6)
                     {
-                        <tr >
-                            <td >
+                        <tr>
+                            <td>
                                 @item.Start.ToShortTimeString()
                             </td>
                             <td>
@@ -194,6 +223,8 @@
 
 
 
+
+</div>
 
 
 
