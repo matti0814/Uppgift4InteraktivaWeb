@@ -24,7 +24,7 @@ namespace Uppgift4Interaktiva.Controllers
                 {
                     Session["userName"] = userLogin.UserName;
                     Session["passId"] = userLogin.UserId;
-                    return RedirectToAction("index", "TvPrograms");
+                    return RedirectToAction("Startpage", "TvPrograms");
                 }
             }
 
