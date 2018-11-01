@@ -158,9 +158,41 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LogInNowController.cs" />
     <Compile Include="Controllers\TvProgramsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogInModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogInModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogInModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogInModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogInModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TvProgram.cs">
       <DependentUpon>TvProgramModel.tt</DependentUpon>
@@ -180,6 +212,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TvProgramModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>LogInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserProfile.cs">
+      <DependentUpon>Login.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ValidateUser.cs" />
     <Compile Include="Models\ViewModels\ChannelLists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -195,6 +234,26 @@
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Login.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Login.edmx</DependentUpon>
+      <LastGenOutput>Login.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Login.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Login.edmx</DependentUpon>
+      <LastGenOutput>Login.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\LogInModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogInModel.edmx</DependentUpon>
+      <LastGenOutput>LogInModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\LogInModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogInModel.edmx</DependentUpon>
+      <LastGenOutput>LogInModel.cs</LastGenOutput>
     </Content>
     <Content Include="Models\TvProgramModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -241,6 +300,23 @@
     <Content Include="Views\TvPrograms\Edit.cshtml" />
     <Content Include="Views\TvPrograms\Index.cshtml" />
     <Content Include="Views\TvPrograms\Startpage.cshtml" />
+    <EntityDeploy Include="Models\Login.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Login.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Login.edmx.diagram">
+      <DependentUpon>Login.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\UserDashBoard.cshtml" />
+    <EntityDeploy Include="Models\LogInModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LogInModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\LogInModel.edmx.diagram">
+      <DependentUpon>LogInModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\LogInNow\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

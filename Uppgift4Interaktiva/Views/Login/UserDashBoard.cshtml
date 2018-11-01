@@ -1,0 +1,16 @@
+﻿@model Uppgift4Interaktiva.Models.UserProfile
+@{
+    ViewBag.Title = "UserDashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserDashBoard</h2>
+
+<div>
+    <h1> User DashBoard </h1>
+
+@if (Session["UserName"] != null)
+{
+    @Session["UserName"].ToString()
+}
+</div>
