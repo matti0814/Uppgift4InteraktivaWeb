@@ -13,7 +13,7 @@ namespace Uppgift4Interaktiva.Controllers
 {
     public class TvProgramsController : Controller
     {
-        private Uppgift4Entities db = new Uppgift4Entities();
+        private Uppgift4Entities db = new Uppgift4Entities();       
 
         // GET: TvPrograms
         public ActionResult Index()
