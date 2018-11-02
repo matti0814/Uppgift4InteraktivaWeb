@@ -28,6 +28,7 @@ namespace Uppgift4Interaktiva.Controllers
             {
                 var dateTime = new DateTime(2018, 10, 30);
                 selectedDT = dateTime;
+                
             }
             
             var allChannelList = new ChannelLists();
