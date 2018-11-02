@@ -10,40 +10,35 @@
     @Scripts.Render("~/bundles/modernizr")
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/CustomScripts/bootbox.min.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>  
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top mb-4 mt-0">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top mb-5 mt-0">
         @Html.ActionLink("TV-KOLLEN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-
-            <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item">@Html.ActionLink("Home", "Index", "Home")</li>
-                <li class="nav-item">@Html.ActionLink("About", "About", "Home")</li>
-                <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home")</li>
-                <li> <a href="#">@Session["userName"]</a></li>
-            </ul>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">          
+            <ul class="nav">
+                <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Index", "Home")'">Start</button></li>
+                <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Startpage", "TvPrograms")'">Tablå</button></li>
+            </ul>          
             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
                 <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i class="fa fa-cog fa-fw fa-lg"></i></a></li>
                 <li class="dropdown order-1">
-                    <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
-                    <ul class="dropdown-menu dropdown-menu-right mt-2">
-                        <li> <a href="#">@Session["userName"]</a></li>
-                    </ul>
+                    <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("Index", "LogInNow")'">Log In</button>
+                    
                 </li>
             </ul>
         </div>
     </nav>
     <div class="container body-content">
-        @RenderBody()
+        @RenderBody()       
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - TV Kollen</p>
         </footer>
     </div>
 

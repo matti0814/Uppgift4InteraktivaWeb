@@ -26,9 +26,9 @@
     function click13(name, channel, time, info, date, endtime) {
 
 
-        bootbox.alert({
-            title: '<h1>' + name + '</h1>',
+        bootbox.alert({           
             message:
+                '<h1>' + name + '</h1>'+
                 '<b>Kanal: </b>' + channel + '</br>' +
                 '<b>Datum: </b>' + date + '</br>' +
                 '<b>Börjar: </b>' + time + '</br>' +
@@ -45,12 +45,18 @@
     }
 </script>
 
+<div class="jumbotron">
+    <h1>TV KOLLEN</h1>
+    <p class="lead">Tv-kollen är internets bästa guide för vilka TVprogram som går!</p></br>
+    <small>"Man känner sig pånyttfödd av TV-Kollen" - Leif GW Persson</small>
+</div>
+
 
 <div class="row">
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.SVT1[0].Channel)</h4></div>
-            <div class="card-body text-center">
+            <div class="card-body text-center table-responsive-lg">
                 <h5 class="card-title">Idag</h5>
                 <table class="table">
 
@@ -81,16 +87,10 @@
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.SVT2[0].Channel)</h4></div>
-            <div class="card-body text-center">
+            <div class="card-body text-center table-responsive-lg">
                 <h5 class="card-title">Idag</h5>
                 <table class="table">
-                    <tr>
-                        <th>
-                            <p>Tid</p>
-                        </th>
-                        <th>
-                            <p>Program</p>
-                        </th>
+                   
                     </tr>
                     @foreach (var item in Model.SVT2)
                     {
@@ -116,16 +116,10 @@
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.TV3[0].Channel)</h4></div>
-            <div class="card-body text-center">
+            <div class="card-body text-center table-responsive-lg">
                 <h5 class="card-title">Idag</h5>
                 <table class="table">
-                    <tr>
-                        <th>
-                            <p>Tid</p>
-                        </th>
-                        <th>
-                            <p>Program</p>
-                        </th>
+                    
                     </tr>
                     @foreach (var item in Model.TV3)
                     {
@@ -152,16 +146,10 @@
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.TV4[0].Channel)</h4></div>
-            <div class="card-body text-center">
+            <div class="card-body text-center table-responsive-lg">
                 <h5 class="card-title">Idag</h5>
                 <table class="table">
-                    <tr>
-                        <th>
-                            <p>Tid</p>
-                        </th>
-                        <th>
-                            <p>Program</p>
-                        </th>
+                  
                     </tr>
                     @foreach (var item in Model.TV4)
                     {
@@ -187,17 +175,11 @@
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>@Html.DisplayFor(modelItem => Model.TV6[0].Channel)</h4></div>
-            <div class="card-body text-center">
+            <div class="card-body text-center table-responsive-lg">
                 <h5 class="card-title">Idag</h5>
 
                 <table class="table">
-                    <tr>
-                        <th>
-                            <p>Tid</p>
-                        </th>
-                        <th>
-                            <p>Program</p>
-                        </th>
+                   
                     </tr>
                     @foreach (var item in Model.TV6)
                     {
@@ -221,7 +203,6 @@
         </div>
     </div>
 
-    <p id="testP">TEST</p>
 
 
 

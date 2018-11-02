@@ -5360,10 +5360,11 @@ button.close {
 }
 
 .modal-dialog {
-  position: relative;
-  width: auto;
-  margin: 0.5rem;
-  pointer-events: none;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-align: center;
+align-items: center;
+min-height: calc(90% - (0.5rem * 2));
 }
 
 .modal.fade .modal-dialog {
