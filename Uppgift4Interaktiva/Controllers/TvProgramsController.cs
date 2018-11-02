@@ -22,10 +22,16 @@ namespace Uppgift4Interaktiva.Controllers
         }
 
 
-        public ActionResult Startpage()
+        public ActionResult Startpage(DateTime? selectedDT)
         {
+            if (selectedDT == null)
+            {
+                var dateTime = new DateTime(2018, 10, 30);
+                selectedDT = dateTime;
+            }
+            
             var allChannelList = new ChannelLists();
-            allChannelList.CreateAllLists();
+            allChannelList.CreateAllLists(selectedDT.Value);
             return View(allChannelList);
         }
 
