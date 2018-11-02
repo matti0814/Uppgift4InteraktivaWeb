@@ -10,11 +10,15 @@ namespace Uppgift4Interaktiva.Controllers
     public class LogInNowController : Controller
     {
         // GET: LogInNow
+
+        
         public ActionResult Index()
         {
+
             string btnClick = Request["loginBtn"];
             if (btnClick == "Login")
             {
+
                 string userName = Request["userName"];
                 string password = Request[ "password"];
                 Uppgift4EntitiesLogIn db = new Uppgift4EntitiesLogIn();
@@ -40,7 +44,7 @@ namespace Uppgift4Interaktiva.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "LogInNow");
         }
 
     }
