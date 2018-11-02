@@ -20,10 +20,16 @@ namespace Uppgift4Interaktiva.Controllers
                 Uppgift4EntitiesLogIn db = new Uppgift4EntitiesLogIn();
                 var userLogin = (from a in db.Users where a.UserName == userName && a.Password == password select a).FirstOrDefault();
 
-                if (userLogin != null)
+                if (userLogin != null && userLogin.IsAdmin == true)
                 {
                     Session["userName"] = userLogin.UserName;
-                    Session["passId"] = userLogin.UserId;
+                    Session["userId"] = userLogin.UserId;
+                    return RedirectToAction("index", "TvPrograms");
+                }
+                else if (userLogin != null && userLogin.IsAdmin == false)
+                {
+                    Session["userName"] = userLogin.UserName;
+                    Session["userId"] = userLogin.UserId;
                     return RedirectToAction("Startpage", "TvPrograms");
                 }
             }
