@@ -27,8 +27,7 @@ namespace Uppgift4Interaktiva.Controllers
             if (selectedDT == null)
             {
                 var dateTime = new DateTime(2018, 10, 30);
-                selectedDT = dateTime;
-                
+                selectedDT = dateTime;               
             }
             
             var allChannelList = new ChannelLists();

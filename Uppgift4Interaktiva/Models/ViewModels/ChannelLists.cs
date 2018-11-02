@@ -18,62 +18,29 @@ namespace Uppgift4Interaktiva.Models.ViewModels
         public List<TvProgram> TV6 { get; set; } = new List<TvProgram>();
         public List<TvProgram> AllShows { get; set; } = new List<TvProgram>();
 
-
         public List<TvProgram> ReturnAllShows()
         {
             var templist = from p in db.TvProgram select p;
             AllShows = templist.ToList();
             return templist.ToList();
         }
-        public List<TvProgram> ShowSVT1 (DateTime dt)           
-        {
-            List<TvProgram> templist1 = new List<TvProgram>();         
-            var templist = from p in db.TvProgram.Where(x => x.Channel == "SVT1") select p;
-            templist1 = templist.ToList();
-            SVT1 = templist1.Where(y => y.Start.Date == dt.Date).ToList();
-            return SVT1;
-        }
-        public List<TvProgram> ShowSVT2(DateTime dt)
+
+        public List<TvProgram> GetSpecificChannelAndDay(DateTime dt, string channel)
         {
             List<TvProgram> templist1 = new List<TvProgram>();
-            var templist = from p in db.TvProgram.Where(x => x.Channel == "SVT2") select p;
-            templist1 = templist.ToList();
-            SVT2 = templist1.Where(y => y.Start.Date == dt.Date).ToList();
-            return SVT2;
-        }
-        public List<TvProgram> ShowTV3(DateTime dt)
-        {
-            List<TvProgram> templist1 = new List<TvProgram>();
-            var templist = from p in db.TvProgram.Where(x => x.Channel == "TV3") select p;
-            templist1 = templist.ToList();
-            TV3 = templist1.Where(y => y.Start.Date == dt.Date).ToList();
-            return TV3;
-        }
-        public List<TvProgram> ShowTV4(DateTime dt)
-        {
-            List<TvProgram> templist1 = new List<TvProgram>();
-            var templist = from p in db.TvProgram.Where(x => x.Channel == "TV4") select p;
-            templist1 = templist.ToList();
-            TV4 = templist1.Where(y => y.Start.Date == dt.Date).ToList();
-            return TV4;
-        }
-        public List<TvProgram> ShowTV6(DateTime dt)
-        {
-            List<TvProgram> templist1 = new List<TvProgram>();
-            var templist = from p in db.TvProgram.Where(x => x.Channel == "TV6") select p;
-            templist1 = templist.ToList();
-            TV6 = templist1.Where(y => y.Start.Date == dt.Date).ToList();
-            return TV6;
+            var templist = from p in db.TvProgram.Where(x => x.Channel == channel) select p;
+            templist1 = templist.OrderBy(z => z.Start.Hour).ToList();           
+            return templist1.Where(y => y.Start.Date == dt.Date).ToList();           
         }
 
         public void CreateAllLists(DateTime dtinput)
         {
-            ReturnAllShows();
-            ShowSVT1(dtinput);
-            ShowSVT2(dtinput);
-            ShowTV3(dtinput);
-            ShowTV4(dtinput);
-            ShowTV6(dtinput);
+            ReturnAllShows();          
+            SVT1 = GetSpecificChannelAndDay(dtinput, "SVT1");
+            SVT2 = GetSpecificChannelAndDay(dtinput, "SVT2");
+            TV3 = GetSpecificChannelAndDay(dtinput, "TV3");
+            TV4 = GetSpecificChannelAndDay(dtinput, "TV4");
+            TV6 = GetSpecificChannelAndDay(dtinput, "TV6");
         }
 
      
