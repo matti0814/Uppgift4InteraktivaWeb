@@ -26,14 +26,17 @@ namespace Uppgift4Interaktiva.Controllers
         {
             if (selectedDT == null)
             {
-                var dateTime = new DateTime(2018, 10, 30);
+                var dateTime = new DateTime(2018, 11, 11);
                 selectedDT = dateTime;               
             }
+         
+            
             
             var allChannelList = new ChannelLists();
             allChannelList.CreateAllLists(selectedDT.Value);
             return View(allChannelList);
         }
+     
 
         // GET: TvPrograms/Details/5
         public ActionResult Details(int? id)

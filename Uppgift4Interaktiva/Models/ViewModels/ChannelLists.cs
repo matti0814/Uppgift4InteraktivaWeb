@@ -43,7 +43,10 @@ namespace Uppgift4Interaktiva.Models.ViewModels
             TV6 = GetSpecificChannelAndDay(dtinput, "TV6");
         }
 
-     
+        public string ReturnDateTimeAsString(DateTime x)
+        {
+            return x.ToString();
+        }
 
 
 

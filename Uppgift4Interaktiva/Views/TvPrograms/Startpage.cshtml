@@ -10,9 +10,9 @@
     function click13(name, channel, time, info, date, endtime) {
 
 
-        bootbox.alert({           
+        bootbox.alert({
             message:
-                '<h1>' + name + '</h1>'+
+                '<h1>' + name + '</h1>' +
                 '<b>Kanal: </b>' + channel + '</br>' +
                 '<b>Datum: </b>' + date + '</br>' +
                 '<b>Börjar: </b>' + time + '</br>' +
@@ -26,45 +26,63 @@
                 console.log('This was logged in the callback: ' + result);
             }
         });
+
+
+
     }
 </script>
-
 <div class="jumbotron">
     <h1>TV KOLLEN</h1>
     <p class="lead">Tv-kollen är internets bästa guide för vilka TVprogram som går!</p></br>
     <small>"Man känner sig pånyttfödd av TV-Kollen" - Leif GW Persson</small>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        @{ var idagDate = new DateTime(2018, 11, 11);
-                var imorrnDate = new DateTime(2018, 11, 12);
-                var tisDate = new DateTime(2018, 11, 13);
-                var onsDate = new DateTime(2018, 11, 14);
-                var torsDate = new DateTime(2018, 11, 15);
-                var freDate = new DateTime(2018, 11, 16);
-                var lorDate = new DateTime(2018, 11, 17);
+@{
+    var idagDate = new DateTime(2018, 11, 11);
+    var imorrnDate = new DateTime(2018, 11, 12);
+    var tisDate = new DateTime(2018, 11, 13);
+    var onsDate = new DateTime(2018, 11, 14);
+    var torsDate = new DateTime(2018, 11, 15);
+    var freDate = new DateTime(2018, 11, 16);
+    var lorDate = new DateTime(2018, 11, 17);
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="@Url.Action("Startpage", "TvPrograms", new { selectedDT = idagDate })">Idag <small>11/11</small></a>
-                <a class="nav-item nav-link" href="@Url.Action("Startpage", "TvPrograms", new { selectedDT = imorrnDate })">Imorgon <small>12/11</small></a>
+                <a class="nav-item nav-link" href="@Url.Action("Startpage", "TvPrograms", new { selectedDT = idagDate })">Idag <small>@idagDate.ToString("MM/dd")</small></a>
+                <a class="nav-item nav-link" href="@Url.Action("Startpage", "TvPrograms", new { selectedDT = imorrnDate })">Imorgon <small>@imorrnDate.ToString("MM/dd")</small></a>
                 <a class="nav-item nav-link" href="#">Tis <small>13/11</small></a>
                 <a class="nav-item nav-link" href="#">Ons <small>14/11</small></a>
                 <a class="nav-item nav-link" href="#">Tor <small>15/11</small></a>
                 <a class="nav-item nav-link" href="#">Fre <small>16/11</small></a>
                 <a class="nav-item nav-link" href="#">Lör <small>17/11</small></a>
             </div>
-        }
+
+        </div>
+    </nav>
+
+    <div>
+        <h1 class="text-center" id="dateHeader"></h1>
     </div>
-</nav>
+    <script>
+        var dt = @Model.ReturnDateTimeAsString(idagDate);
+        $("#dateHeader").text(dt);
+    </script>
+
+
+
+}
+
+
+
 <div class="row">
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
-            <div class="card-header text-center"><h4>SVT 1</h4></div>
+            <div class="card-header text-center"><h4>SVT1</h4></div>
             <div class="card-body text-center table-responsive-lg">
-                <h5 class="card-title">Idag</h5>
+
                 <table class="table">
 
                     @foreach (var item in Model.SVT1)
@@ -95,10 +113,9 @@
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>SVT2</h4></div>
             <div class="card-body text-center table-responsive-lg">
-                <h5 class="card-title">Idag</h5>
                 <table class="table">
-                   
-                    </tr>
+
+
                     @foreach (var item in Model.SVT2)
                     {
                         <tr>
@@ -124,10 +141,9 @@
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>TV3</h4></div>
             <div class="card-body text-center table-responsive-lg">
-                <h5 class="card-title">Idag</h5>
                 <table class="table">
-                    
-                    </tr>
+
+
                     @foreach (var item in Model.TV3)
                     {
                         var modalname = item.Start;
@@ -154,10 +170,9 @@
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>TV4</h4></div>
             <div class="card-body text-center table-responsive-lg">
-                <h5 class="card-title">Idag</h5>
                 <table class="table">
-                  
-                    </tr>
+
+
                     @foreach (var item in Model.TV4)
                     {
 
@@ -183,11 +198,10 @@
         <div class="card bg-light mb-3">
             <div class="card-header text-center"><h4>TV6</h4></div>
             <div class="card-body text-center table-responsive-lg">
-                <h5 class="card-title">Idag</h5>
 
                 <table class="table">
-                   
-                    </tr>
+
+
                     @foreach (var item in Model.TV6)
                     {
                         <tr>
