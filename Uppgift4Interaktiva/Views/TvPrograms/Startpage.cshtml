@@ -17,7 +17,8 @@
                 '<b>Datum: </b>' + date + '</br>' +
                 '<b>Börjar: </b>' + time + '</br>' +
                 '<b>Slutar: </b>' + endtime + '</br></br>' +
-                '<b>Programinfo: </b></br>' + '<small>' + info + '</small>',
+                '<b>Programinfo: </b></br>' + '<small>' + info + '</small>', 
+            
 
 
 
@@ -51,8 +52,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="@Url.Action("Startpage", "TvPrograms", new { selectedDT = idagDate })">Idag <small>@idagDate.ToString("MM/dd")</small></a>
-                <a class="nav-item nav-link" href="@Url.Action("Startpage", "TvPrograms", new { selectedDT = imorrnDate })">Imorgon <small>@imorrnDate.ToString("MM/dd")</small></a>
+                <a class="nav-item nav-link" href="@Url.Action("Startpage", "TvPrograms", new { selectedDT = idagDate })">Idag <small>11/11</small></a>
+                <a class="nav-item nav-link" href="@Url.Action("Startpage", "TvPrograms", new { selectedDT = imorrnDate })">Imorgon <small>12/11</small></a>
                 <a class="nav-item nav-link" href="#">Tis <small>13/11</small></a>
                 <a class="nav-item nav-link" href="#">Ons <small>14/11</small></a>
                 <a class="nav-item nav-link" href="#">Tor <small>15/11</small></a>
@@ -80,11 +81,10 @@
 <div class="row">
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
-            <div class="card-header text-center"><h4>SVT1</h4></div>
+            <div class="card-header text-center"><img src="https://new.static.tv.nu/17274821" height="42"/></div>
             <div class="card-body text-center table-responsive-lg">
 
-                <table class="table">
-
+                <table class="table">                 
                     @foreach (var item in Model.SVT1)
                     {
                         <tr>
@@ -93,7 +93,7 @@
                                 @item.Start.ToShortTimeString()
                             </td>
                             <td>
-                                @item.Name
+                                @item.Name                             
                             </td>
                             <td>
                                 <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
@@ -103,7 +103,6 @@
                         </tr>
 
                     }
-
                 </table>
 
             </div>
@@ -111,7 +110,7 @@
     </div>
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
-            <div class="card-header text-center"><h4>SVT2</h4></div>
+            <div class="card-header text-center"><img src="https://new.static.tv.nu/17274919" height="42" /></div>
             <div class="card-body text-center table-responsive-lg">
                 <table class="table">
 
@@ -139,7 +138,7 @@
     </div>
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
-            <div class="card-header text-center"><h4>TV3</h4></div>
+            <div class="card-header text-center"><img src="https://vignette.wikia.nocookie.net/tvkanal/images/a/a7/TV3_%28SE%29.png/revision/latest?cb=20091205184104&path-prefix=da" height="50"/></div>
             <div class="card-body text-center table-responsive-lg">
                 <table class="table">
 
@@ -168,7 +167,7 @@
     </div>
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
-            <div class="card-header text-center"><h4>TV4</h4></div>
+            <div class="card-header text-center"><img src="https://www.bjarekraft.se/app/uploads/2017/08/logo-TV4.png" height="32" /></div>
             <div class="card-body text-center table-responsive-lg">
                 <table class="table">
 
@@ -196,7 +195,7 @@
     </div>
     <div class="col-sm-12 col-md-4 ">
         <div class="card bg-light mb-3">
-            <div class="card-header text-center"><h4>TV6</h4></div>
+            <div class="card-header text-center"><img src="https://new.static.tv.nu/100" height="40"/></div>
             <div class="card-body text-center table-responsive-lg">
 
                 <table class="table">
