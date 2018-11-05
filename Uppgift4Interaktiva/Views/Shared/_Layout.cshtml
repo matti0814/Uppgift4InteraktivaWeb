@@ -20,16 +20,14 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            @{ var idagDate = new DateTime(2018, 11, 11);
-                <ul class="nav">
-                    <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Startpage", "TvPrograms", new { selectedDT = idagDate })'">Tablå</button></li>
-                    <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Index", "Home")'">Min Sida</button></li>
-                </ul>
-            }
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">          
+            <ul class="nav">
+                <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Index", "Home")'">Start</button></li>
+                <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Startpage", "TvPrograms")'">Tablå</button></li>
+            </ul>          
             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
-                <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings">Konto: @Session["userName"]</a></li>
-                <i class="fa fa-cog fa-fw fa-lg"></i>
+                <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings">@Session["userName"]</a></li>
+                <li class="fa fa-cog fa-fw fa-lg"></li>
                 <li class="dropdown order-1">
                     <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("Index", "LogInNow")'">Log In</button>
 
@@ -38,7 +36,7 @@
         </div>
     </nav>
     <div class="container body-content">
-        @RenderBody()
+        @RenderBody()       
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - TV Kollen</p>
@@ -48,6 +46,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-   
 </body>
 </html>
