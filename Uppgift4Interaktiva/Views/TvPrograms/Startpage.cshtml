@@ -17,8 +17,8 @@
                 '<b>Datum: </b>' + date + '</br>' +
                 '<b>Börjar: </b>' + time + '</br>' +
                 '<b>Slutar: </b>' + endtime + '</br></br>' +
-                '<b>Programinfo: </b></br>' + '<small>' + info + '</small>', 
-            
+                '<b>Programinfo: </b></br>' + '<small>' + info + '</small>',
+
 
 
 
@@ -64,6 +64,7 @@
         </div>
     </nav>
 
+
     <div>
         <h1 class="text-center" id="dateHeader"></h1>
     </div>
@@ -77,156 +78,162 @@
 }
 
 
+    
 
-<div class="row">
-    <div class="col-sm-12 col-md-4 ">
-        <div class="card bg-light mb-3">
-            <div class="card-header text-center"><img src="https://new.static.tv.nu/17274821" height="42"/></div>
-            <div class="card-body text-center table-responsive-lg">
+    <div class="row">
+        <div class="col-sm-12 col-md-4 ">
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center"><img src="https://new.static.tv.nu/17274821" height="42" /></div>
+                <div class="card-body text-center table-responsive-lg">
 
-                <table class="table">                 
-                    @foreach (var item in Model.SVT1)
-                    {
-                        <tr>
+                    <table class="table">
+                        @foreach (var item in Model.SVT1)
+                        {
+                            <tr>
 
-                            <td>
-                                @item.Start.ToShortTimeString()
-                            </td>
-                            <td>
-                                @item.Name                             
-                            </td>
-                            <td>
-                                <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
-                                    Info
-                                </button>
-                            </td>
-                        </tr>
+                                <td>
+                                    @item.Start.ToShortTimeString()
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
+                                        Info
+                                    </button>
+                                </td>
+                            </tr>
 
-                    }
-                </table>
+                        }
+                    </table>
 
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-12 col-md-4 ">
-        <div class="card bg-light mb-3">
-            <div class="card-header text-center"><img src="https://new.static.tv.nu/17274919" height="42" /></div>
-            <div class="card-body text-center table-responsive-lg">
-                <table class="table">
+        
+        @if (Model.SVT2.Count == 0)
+        {
+        <div class="col-sm-12 col-md-4 ">
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center"><img src="https://new.static.tv.nu/17274919" height="42" /></div>
+                <div class="card-body text-center table-responsive-lg">
+                    <table class="table">
 
 
-                    @foreach (var item in Model.SVT2)
-                    {
-                        <tr>
-                            <td>
-                                @item.Start.ToShortTimeString()
-                            </td>
-                            <td>
-                                @item.Name
-                            </td>
-                            <td>
-                                <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
-                                    Info
-                                </button>
-                            </td>
+                        @foreach (var item in Model.SVT2)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Start.ToShortTimeString()
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
+                                        Info
+                                    </button>
+                                </td>
 
-                        </tr>
-                    }
-                </table>
+                            </tr>
+                        }
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-12 col-md-4 ">
-        <div class="card bg-light mb-3">
-            <div class="card-header text-center"><img src="https://vignette.wikia.nocookie.net/tvkanal/images/a/a7/TV3_%28SE%29.png/revision/latest?cb=20091205184104&path-prefix=da" height="50"/></div>
-            <div class="card-body text-center table-responsive-lg">
-                <table class="table">
+
+        }
+        <div class="col-sm-12 col-md-4 ">
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center"><img src="https://vignette.wikia.nocookie.net/tvkanal/images/a/a7/TV3_%28SE%29.png/revision/latest?cb=20091205184104&path-prefix=da" height="50" /></div>
+                <div class="card-body text-center table-responsive-lg">
+                    <table class="table">
 
 
-                    @foreach (var item in Model.TV3)
-                    {
-                        var modalname = item.Start;
+                        @foreach (var item in Model.TV3)
+                        {
+                            var modalname = item.Start;
 
-                        <tr>
-                            <td>
-                                @item.Start.ToShortTimeString()
-                            </td>
-                            <td>
-                                @item.Name
-                            </td>
-                            <td>
-                                <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
-                                    Info
-                                </button>
-                            </td>
-                        </tr>
-                    }
-                </table>
+                            <tr>
+                                <td>
+                                    @item.Start.ToShortTimeString()
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
+                                        Info
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-12 col-md-4 ">
-        <div class="card bg-light mb-3">
-            <div class="card-header text-center"><img src="https://www.bjarekraft.se/app/uploads/2017/08/logo-TV4.png" height="32" /></div>
-            <div class="card-body text-center table-responsive-lg">
-                <table class="table">
+        <div class="col-sm-12 col-md-4 ">
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center"><img src="https://www.bjarekraft.se/app/uploads/2017/08/logo-TV4.png" height="32" /></div>
+                <div class="card-body text-center table-responsive-lg">
+                    <table class="table">
 
 
-                    @foreach (var item in Model.TV4)
-                    {
+                        @foreach (var item in Model.TV4)
+                        {
 
-                        <tr>
-                            <td>
-                                @item.Start.ToShortTimeString()
-                            </td>
-                            <td>
-                                @item.Name
-                            </td>
-                            <td>
-                                <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
-                                    Info
-                                </button>
-                            </td>
-                        </tr>
-                    }
-                </table>
+                            <tr>
+                                <td>
+                                    @item.Start.ToShortTimeString()
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
+                                        Info
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-12 col-md-4 ">
-        <div class="card bg-light mb-3">
-            <div class="card-header text-center"><img src="https://new.static.tv.nu/100" height="40"/></div>
-            <div class="card-body text-center table-responsive-lg">
+        <div class="col-sm-12 col-md-4 ">
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center"><img src="https://new.static.tv.nu/100" height="40" /></div>
+                <div class="card-body text-center table-responsive-lg">
 
-                <table class="table">
+                    <table class="table">
 
 
-                    @foreach (var item in Model.TV6)
-                    {
-                        <tr>
-                            <td>
-                                @item.Start.ToShortTimeString()
-                            </td>
-                            <td>
-                                @item.Name
+                        @foreach (var item in Model.TV6)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Start.ToShortTimeString()
+                                </td>
+                                <td>
+                                    @item.Name
 
-                            </td>
-                            <td>
-                                <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
-                                    Info
-                                </button>
-                            </td>
-                        </tr>
-                    }
-                </table>
+                                </td>
+                                <td>
+                                    <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click13('@item.Name', '@item.Channel', '@item.Start.ToShortTimeString()', '@item.Info', '@item.Start.ToShortDateString()' , '@item.Stop.ToShortTimeString()')">
+                                        Info
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
             </div>
         </div>
+
+
+        
+
     </div>
-
-
-
-
-</div>
 
 
 

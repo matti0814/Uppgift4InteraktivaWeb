@@ -25,8 +25,7 @@ namespace Uppgift4Interaktiva.Models
         public string Channel { get; set; }
         public string Info { get; set; }
 
-     
-   
+
     }
    
 }

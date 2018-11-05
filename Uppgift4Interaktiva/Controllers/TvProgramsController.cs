@@ -18,6 +18,7 @@ namespace Uppgift4Interaktiva.Controllers
         // GET: TvPrograms
         public ActionResult Index()
         {
+          
             return View(db.TvProgram.ToList());
         }
 
