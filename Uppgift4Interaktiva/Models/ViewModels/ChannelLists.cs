@@ -62,13 +62,13 @@ namespace Uppgift4Interaktiva.Models.ViewModels
 
         public void CreateAllLists(DateTime dtinput)
         {
-           ReturnAllShows();
-            /* SVT1 = GetSpecificChannelAndDay(dtinput, "SVT1");
+             ReturnAllShows();
+             SVT1 = GetSpecificChannelAndDay(dtinput, "SVT1");
              SVT2 = GetSpecificChannelAndDay(dtinput, "SVT2");
              TV3 = GetSpecificChannelAndDay(dtinput, "TV3");
              TV4 = GetSpecificChannelAndDay(dtinput, "TV4");
-             TV6 = GetSpecificChannelAndDay(dtinput, "TV6");*/
-            RemoveChannelFromUser(3, 1);
+             TV6 = GetSpecificChannelAndDay(dtinput, "TV6");
+         
          
         }
 
@@ -85,7 +85,9 @@ namespace Uppgift4Interaktiva.Models.ViewModels
         public void RemoveChannelFromUser(int userid, int channelid)
         {
             var temp = dbUserChannels.UserChannels.Where(x => x.UserId == userid).ToArray();
+
             var nytemp = temp.Where(y => y.ChannelId == channelid).ToArray();
+
             dbUserChannels.UserChannels.RemoveRange(nytemp);
             dbUserChannels.SaveChanges();
          

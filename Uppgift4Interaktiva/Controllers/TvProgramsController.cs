@@ -57,6 +57,17 @@ namespace Uppgift4Interaktiva.Controllers
         }
 
 
+        public ActionResult HideChannel(int channel)
+        {
+            var idString = Session["userId"].ToString();
+            int userID = int.Parse(idString);
+
+            var allChannelList = new ChannelLists();
+            allChannelList.RemoveChannelFromUser(userID, channel);
+            return RedirectToAction("StartpageUser");
+        }
+
+
         // GET: TvPrograms/Details/5
         public ActionResult Details(int? id)
         {
