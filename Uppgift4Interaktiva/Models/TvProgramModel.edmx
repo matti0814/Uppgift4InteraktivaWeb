@@ -4,24 +4,24 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Uppgift4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Uppgift4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TvProgram">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="20" />
-          <Property Name="Genre" Type="nchar" MaxLength="10" />
-          <Property Name="Start" Type="datetime" />
-          <Property Name="Stop" Type="datetime" />
+          <Property Name="Genre" Type="nchar" MaxLength="20" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="Stop" Type="datetime" Nullable="false" />
           <Property Name="Channel" Type="nchar" MaxLength="20" />
           <Property Name="Info" Type="nchar" MaxLength="200" />
+          <Property Name="ChannelId" Type="int" />
         </EntityType>
         <EntityContainer Name="Uppgift4ModelStoreContainer">
           <EntitySet Name="TvProgram" EntityType="Self.TvProgram" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Uppgift4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -31,11 +31,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="Genre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Start" Type="DateTime" Precision="3" />
-          <Property Name="Stop" Type="DateTime" Precision="3" />
+          <Property Name="Genre" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Start" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Stop" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="Channel" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="Info" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="ChannelId" Type="Int32" />
         </EntityType>
         <EntityContainer Name="Uppgift4Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TvProgram" EntityType="Self.TvProgram" />
@@ -49,6 +50,7 @@
           <EntitySetMapping Name="TvProgram">
             <EntityTypeMapping TypeName="Uppgift4Model.TvProgram">
               <MappingFragment StoreEntitySet="TvProgram">
+                <ScalarProperty Name="ChannelId" ColumnName="ChannelId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Genre" ColumnName="Genre" />

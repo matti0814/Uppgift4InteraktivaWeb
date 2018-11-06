@@ -15,7 +15,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top mb-5 mt-0">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top mb-5 mt-0">       
         @Html.ActionLink("TV-KOLLEN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -24,12 +24,21 @@
             <ul class="nav">
                 <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Index", "Home")'">Start</button></li>
                 <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Startpage", "TvPrograms")'">Tablå</button></li>
+              
             </ul>          
             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
                 <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="Settings">@Session["userName"]</a></li>
                 <li class="fa fa-cog fa-fw fa-lg"></li>
                 <li class="dropdown order-1">
-                    <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("Index", "LogInNow")'">Log In</button>                   
+                    @if (Session["userName"] != null)
+                    {
+                        <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("Logout", "LogInNow")'">Log Out</button>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("Index", "LogInNow")'">Log In</button>
+                    }
+
 
                 </li>
             </ul>

@@ -29,15 +29,33 @@ namespace Uppgift4Interaktiva.Controllers
             {
                 var dateTime = new DateTime(2018, 11, 11);
                 selectedDT = dateTime;               
-            }
-         
-            
-            
+            }                             
             var allChannelList = new ChannelLists();
             allChannelList.CreateAllLists(selectedDT.Value);
             return View(allChannelList);
         }
-     
+
+        //After Login
+        public ActionResult StartpageUser(DateTime? selectedDT)
+        {
+            if (selectedDT == null)
+            {
+                var dateTime = new DateTime(2018, 11, 11);
+                selectedDT = dateTime;
+            }
+            if (Session["userName"] == null)
+            {
+                return RedirectToAction("Startpage", "TvPrograms");
+            }
+
+            var idString = Session["userId"].ToString();
+            int userID = int.Parse(idString);
+            
+            var allChannelList = new ChannelLists();
+            allChannelList.CreatePersonalList(selectedDT.Value, userID);
+            return View(allChannelList);
+        }
+
 
         // GET: TvPrograms/Details/5
         public ActionResult Details(int? id)
@@ -130,8 +148,9 @@ namespace Uppgift4Interaktiva.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             TvProgram tvProgram = db.TvProgram.Find(id);
+
             db.TvProgram.Remove(tvProgram);
-            db.SaveChanges();
+            db.SaveChanges();            
             return RedirectToAction("Index");
         }
 

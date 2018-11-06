@@ -28,13 +28,14 @@ namespace Uppgift4Interaktiva.Controllers
                 {
                     Session["userName"] = userLogin.UserName;
                     Session["userId"] = userLogin.UserId;
-                    return RedirectToAction("index", "TvPrograms");
+                    Session["isAdmin"] = userLogin.IsAdmin;
+                    return RedirectToAction("StartpageUser", "TvPrograms");
                 }
                 else if (userLogin != null && userLogin.IsAdmin == false)
                 {
                     Session["userName"] = userLogin.UserName;
                     Session["userId"] = userLogin.UserId;
-                    return RedirectToAction("Startpage", "TvPrograms");
+                    return RedirectToAction("StartpageUser", "TvPrograms");
                 }
             }
 

@@ -164,6 +164,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Channel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Channel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Channel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Channel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Channel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Channel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Channels.cs">
+      <DependentUpon>Channel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Login.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -215,6 +233,24 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>LogInModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserChannels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserChannels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserChannels.cs">
+      <DependentUpon>UserChannels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserChannels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserChannels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserChannels1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserChannels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserProfile.cs">
       <DependentUpon>Login.tt</DependentUpon>
     </Compile>
@@ -235,6 +271,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\Channel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Channel.edmx</DependentUpon>
+      <LastGenOutput>Channel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Channel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Channel.edmx</DependentUpon>
+      <LastGenOutput>Channel.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Login.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -265,6 +311,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TvProgramModel.edmx</DependentUpon>
       <LastGenOutput>TvProgramModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UserChannels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserChannels.edmx</DependentUpon>
+      <LastGenOutput>UserChannels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UserChannels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserChannels.edmx</DependentUpon>
+      <LastGenOutput>UserChannels1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -319,6 +375,21 @@
       <DependentUpon>LogInModel.edmx</DependentUpon>
     </Content>
     <Content Include="Views\LogInNow\Index.cshtml" />
+    <EntityDeploy Include="Models\UserChannels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserChannels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UserChannels.edmx.diagram">
+      <DependentUpon>UserChannels.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Channel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Channel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Channel.edmx.diagram">
+      <DependentUpon>Channel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\TvPrograms\StartpageUser.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
