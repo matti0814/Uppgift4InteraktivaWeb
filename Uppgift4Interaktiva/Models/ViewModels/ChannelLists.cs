@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Uppgift4Interaktiva.Models;
 
 namespace Uppgift4Interaktiva.Models.ViewModels
@@ -91,9 +92,15 @@ namespace Uppgift4Interaktiva.Models.ViewModels
          
         }
    
-        public void AddChannelToUser(int userid, int channelid)
+        public void AddChannelToUser(UserChannels uc ,int userid, int channelid)
         {
-            
+
+            uc.UserId = userid;
+            uc.ChannelId = channelid;
+
+            dbUserChannels.UserChannels.Add(uc);
+            dbUserChannels.SaveChanges();
+           
         }
         public string ReturnDateTimeAsString(DateTime x)
         {

@@ -9,10 +9,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" />
           <Property Name="ChannelId" Type="int" Nullable="false" />
-          <Property Name="Channel" Type="nchar" MaxLength="20" />
         </EntityType>
         <EntityContainer Name="UserChannelsStoreContainer">
           <EntitySet Name="UserChannels" EntityType="Self.UserChannels" Schema="dbo" store:Type="Tables" />
@@ -28,7 +27,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" />
           <Property Name="ChannelId" Type="Int32" Nullable="false" />
-          <Property Name="Channel" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityContainer Name="Uppgift4UserChannels" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="UserChannels" EntityType="Self.UserChannels" />
@@ -42,7 +40,6 @@
           <EntitySetMapping Name="UserChannels">
             <EntityTypeMapping TypeName="UserChannels.UserChannels">
               <MappingFragment StoreEntitySet="UserChannels">
-                <ScalarProperty Name="Channel" ColumnName="Channel" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="ChannelId" ColumnName="ChannelId" />

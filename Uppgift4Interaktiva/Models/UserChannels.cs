@@ -17,6 +17,5 @@ namespace Uppgift4Interaktiva.Models
         public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
         public int ChannelId { get; set; }
-        public string Channel { get; set; }
     }
 }

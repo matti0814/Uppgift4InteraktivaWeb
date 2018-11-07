@@ -67,6 +67,28 @@ namespace Uppgift4Interaktiva.Controllers
             return RedirectToAction("StartpageUser");
         }
 
+       
+        
+        public ActionResult ShowChannel(int one, int two, int three, int four, int six)
+        {
+            var idString = Session["userId"].ToString();
+            int userID = int.Parse(idString);
+
+            var input = new UserChannels();
+            var allChannelList = new ChannelLists();
+            allChannelList.RemoveChannelFromUser(userID, one);
+            allChannelList.RemoveChannelFromUser(userID, two);
+            allChannelList.RemoveChannelFromUser(userID, three);
+            allChannelList.RemoveChannelFromUser(userID, four);
+            allChannelList.RemoveChannelFromUser(userID, six);
+            allChannelList.AddChannelToUser(input, userID, one);
+            allChannelList.AddChannelToUser(input, userID, two);
+            allChannelList.AddChannelToUser(input, userID, three);
+            allChannelList.AddChannelToUser(input, userID, four);
+            allChannelList.AddChannelToUser(input, userID, six);
+            return RedirectToAction("StartpageUser");
+        }
+
 
         // GET: TvPrograms/Details/5
         public ActionResult Details(int? id)
