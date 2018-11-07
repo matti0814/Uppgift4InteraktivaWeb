@@ -80,7 +80,7 @@ namespace Uppgift4Interaktiva.Controllers
             {
                 return HttpNotFound();
             }
-            return PartialView(tvProgram);
+            return View(tvProgram);
         }
     
 

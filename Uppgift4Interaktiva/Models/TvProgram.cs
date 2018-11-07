@@ -22,5 +22,15 @@ namespace Uppgift4Interaktiva.Models
         public string Channel { get; set; }
         public string Info { get; set; }
         public Nullable<int> ChannelId { get; set; }
+
+
+
+
+
+
+        public override string ToString()
+        {
+            return String.Format("Name: {0} Info: {1}.", Name, Info);
+        }
     }
 }

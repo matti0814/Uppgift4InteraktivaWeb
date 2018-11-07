@@ -52,8 +52,6 @@ namespace Uppgift4Interaktiva.Models.ViewModels
                         select p);
 
             var sortChnl = join.Where(y => y.Start.Date == dt.Date).ToList();
-
-
             return templist1 = sortChnl.ToList();
 
         }
@@ -97,7 +95,7 @@ namespace Uppgift4Interaktiva.Models.ViewModels
             return x.ToString();
         }
 
-
+       
 
     }
 }
