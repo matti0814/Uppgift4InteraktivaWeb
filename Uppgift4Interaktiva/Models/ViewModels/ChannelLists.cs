@@ -90,6 +90,11 @@ namespace Uppgift4Interaktiva.Models.ViewModels
             dbUserChannels.SaveChanges();
          
         }
+   
+        public void AddChannelToUser(int userid, int channelid)
+        {
+            
+        }
         public string ReturnDateTimeAsString(DateTime x)
         {
             return x.ToString();
