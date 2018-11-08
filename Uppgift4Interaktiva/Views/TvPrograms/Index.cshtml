@@ -19,18 +19,19 @@
     });
 </script>
 
-<h2>Redigera</h2>
+<h2 class="text-center text-white">Redigera</h2>
 
 
-<p>
-    @Html.ActionLink("Skapa Program", "Create")
-</p><br><br>
+
 
 
         <div class="container">
-            <h5>Filtera med fritext</h5>
+            <h5 class="text-white">Filtera med fritext</h5>
             <input id="myInput" class="span 12 form-control" type="text" placeholder="Filtrera...">
             <br><br>
+            <p>
+                @Html.ActionLink("Skapa Program", "Create")
+            </p>
         </div>
 
         <div class="container text-white">
@@ -39,19 +40,19 @@
                     <th>
                         <a>Namn</a>
                     </th>
-                    <th>
+                    <th class="d-none d-sm-table-cell">
                         <a>Genre</a>
                     </th>
-                    <th>
+                    <th class="d-none d-sm-table-cell">
                         <a>Starttid</a>
                     </th>
-                    <th>
+                    <th class="d-none d-sm-table-cell">
                         <a>Sluttid</a>
                     </th>
                     <th>
                         <a>Kanal</a>
                     </th>
-                    <th>
+                    <th  class="d-none d-sm-table-cell">
                         <a>Information</a>
                     </th>
                     <th></th>
@@ -64,19 +65,20 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Name)
                             </td>
-                            <td>
+                            <td  class="d-none d-sm-table-cell">
                                 @Html.DisplayFor(modelItem => item.Genre)
                             </td>
-                            <td>
+                            <td class="d-none d-sm-table-cell">
                                 @Html.DisplayFor(modelItem => item.Start)
                             </td>
-                            <td>
+                            <td class="d-none d-sm-table-cell">
                                 @Html.DisplayFor(modelItem => item.Stop)
                             </td>
+
                             <td>
                                 @Html.DisplayFor(modelItem => item.Channel)
                             </td>
-                            <td>
+                            <td  class="d-none d-sm-table-cell">
                                 @Html.DisplayFor(modelItem => item.Info)
                             </td>
                             <td>
