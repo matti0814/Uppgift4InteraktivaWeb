@@ -13,31 +13,28 @@
     <script src="~/Scripts/bootstrap.js"></script>  
 </head>
 
-<body>
+<body class="bg-dark">
     
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top mt-0">
+        <nav class="navbar navbar-expand-sm navbar-dark sticky-top mt-0 myNav">
             @Html.ActionLink("TV KOLLEN", "Startpage", "TvPrograms", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="nav">
+                <ul class="nav ml-4">
                     @if (Session["userName"] != null && Session["isAdmin"] == null)
                     {
-                        <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("StartpageUser", "TvPrograms")'">Tablå</button></li>                       
+                        <li class="nav-item"><button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("StartpageUser", "TvPrograms")'">Tablå</button></li>                       
                     }
                     else if (Session["userName"] != null && Session["isAdmin"] != null)
                     {
-                        <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Startpage", "TvPrograms")'">Tablå</button></li>
-                        <li class="nav item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Index", "TvPrograms")'">Redigera</button></li>
+                        <li class="nav-item"><button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("Startpage", "TvPrograms")'">Tablå</button></li>
+                        <li class="nav item"><button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("Index", "TvPrograms")'">Redigera</button></li>
                     }
                     else
                     {
-                        <li class="nav-item"><button type="button" class="btn btn-outline btn-dark" onclick="location.href='@Url.Action("Startpage", "TvPrograms")'">Tablå</button></li>
+                        <li class="nav-item"><button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("Startpage", "TvPrograms")'">Tablå</button></li>
                     }
-
-
-
                 </ul>
                 <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
                     <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="Settings">@Session["userName"]</a></li>
@@ -51,18 +48,16 @@
                         {
                             <button type="button" class="btn btn-outline-secondary" onclick="location.href='@Url.Action("Index", "LogInNow")'">Log In</button>
                         }
-
-
                     </li>
                 </ul>
             </div>
         </nav>
   
-    <div class="container body-content">
+    <div class="container body-content bg-dark">
         @RenderBody()       
-        <hr />
+        <hr class="border-light"/>
         <footer>
-            <p>&copy; @DateTime.Now.Year - TV Kollen</p>
+            <p class="text-secondary font-weight-bold text-center">&copy; @DateTime.Now.Year - TV Kollen</p>
         </footer>
     </div>
 
