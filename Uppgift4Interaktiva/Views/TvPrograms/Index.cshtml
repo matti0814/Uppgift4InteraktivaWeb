@@ -33,61 +33,61 @@
             <br><br>
         </div>
 
+        <div class="container text-white">
+            <table class="table">
+                <tr>
+                    <th>
+                        <a>Namn</a>
+                    </th>
+                    <th>
+                        <a>Genre</a>
+                    </th>
+                    <th>
+                        <a>Starttid</a>
+                    </th>
+                    <th>
+                        <a>Sluttid</a>
+                    </th>
+                    <th>
+                        <a>Kanal</a>
+                    </th>
+                    <th>
+                        <a>Information</a>
+                    </th>
+                    <th></th>
+                </tr>
+                <tbody id="myTable">
+                    @foreach (var item in Model)
+                    {
 
-<table class="table">
-    <tr>
-        <th>
-            <a>Namn</a>          
-        </th>
-        <th>
-            <a>Genre</a>
-        </th>
-        <th>
-            <a>Starttid</a>
-        </th>
-        <th>
-            <a>Sluttid</a>
-        </th>
-        <th>
-            <a>Kanal</a>
-        </th>
-        <th>
-            <a>Information</a>
-        </th>
-        <th></th>
-    </tr>
-    <tbody id="myTable">
-        @foreach (var item in Model)
-        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Genre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Start)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Stop)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Channel)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Info)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Info", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Radera", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
 
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Genre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Start)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Stop)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Channel)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Info)
-                </td>
-                <td>
-                    @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Info", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Radera", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-
-        }
-    </tbody>
-</table>
-
+                    }
+                </tbody>
+            </table>
+        </div>
 
