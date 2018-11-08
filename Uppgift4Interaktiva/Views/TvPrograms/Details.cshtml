@@ -5,8 +5,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="container">
+    <div class="row justify-content-center align-items-center bg-light text-dark rounded-3 mt-5">
+        <div class="col-12">
+            <h2 class="text-center font-weight-bold">@Html.DisplayFor(model => model.Name)<small class="font-weight-light">@Html.DisplayFor(model => model.Channel)</small></h2>
+            
+        </div>
 
-        <div class="container">
+        <div class="row">
+
+            <div class="col-12 justify-content-center">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Start)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Start.TimeOfDay)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Stop)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Stop.TimeOfDay)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Genre)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Genre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Info)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Info)
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+        <div class="col-md-12 text-center text-light">
+            <button class="btn-dark btn-secondary" onclick="location.href='@Url.Action("Startpage", "TvPrograms", new { style = "color:white" })'">Stäng</button>
+        </div>
+    </div>
+</div>
+
+        @*<div class="container">
 
             <h2>Programinfo</h2>
             <div>              
@@ -65,5 +116,5 @@
             <p>              
                 @Html.ActionLink("Stäng", "Startpage")
             </p>
-        </div>
+        </div>*@
       
