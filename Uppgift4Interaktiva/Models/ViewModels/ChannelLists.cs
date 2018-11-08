@@ -53,7 +53,8 @@ namespace Uppgift4Interaktiva.Models.ViewModels
                         select p);
 
             var sortChnl = join.Where(y => y.Start.Date == dt.Date).ToList();
-            return templist1 = sortChnl.ToList();
+            templist1 = sortChnl.ToList();
+            return templist1.OrderBy(x => x.Start.Hour).ToList();
 
         }
 
@@ -84,23 +85,34 @@ namespace Uppgift4Interaktiva.Models.ViewModels
         public void RemoveChannelFromUser(int userid, int channelid)
         {
             var temp = dbUserChannels.UserChannels.Where(x => x.UserId == userid).ToArray();
-
             var nytemp = temp.Where(y => y.ChannelId == channelid).ToArray();
-
             dbUserChannels.UserChannels.RemoveRange(nytemp);
             dbUserChannels.SaveChanges();
          
         }
-   
-        public void AddChannelToUser(UserChannels uc ,int userid, int channelid)
-        {
 
+        public void RemoveAllChannelsFromUser(int userid)
+        {
+            var query = dbUserChannels.UserChannels.Where(x => x.UserId == userid).ToArray();
+            dbUserChannels.UserChannels.RemoveRange(query);
+            dbUserChannels.SaveChanges();
+        }
+   
+        public void AddChannelToUser(int userid, int channelid)
+        {
+            UserChannels uc = new UserChannels();
             uc.UserId = userid;
             uc.ChannelId = channelid;
 
             dbUserChannels.UserChannels.Add(uc);
             dbUserChannels.SaveChanges();
-           
+        }
+
+
+
+        public void ShowAllChannelsForTheUser(UserChannels uc, int userid, int channelid)
+        {
+          
         }
         public string ReturnDateTimeAsString(DateTime x)
         {
