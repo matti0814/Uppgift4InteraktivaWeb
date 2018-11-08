@@ -31,13 +31,25 @@ namespace Uppgift4Interaktiva.Models.ViewModels
             return templist.ToList();
         }
 
-        public List<TvProgram> GetSpecificChannelAndDay(DateTime dt, string channel)
+        public List<TvProgram> GetSpecificChannelAndDay(DateTime? dt, string channel)
         {
             List<TvProgram> templist1 = new List<TvProgram>();
             var templist = from p in db.TvProgram.Where(x => x.Channel == channel) select p;
-            templist1 = templist.OrderBy(z => z.Start.Hour).ToList();           
-            return templist1.Where(y => y.Start.Date == dt.Date).ToList();        
+           
+            if (dt == null)
+            {
+                templist1 = templist.OrderBy(x => x.Start).ToList();
+                return templist1.ToList();
+            }
+            else
+            {
+                templist1 = templist.OrderBy(z => z.Start.Hour).ToList();
+                return templist1.Where(y => y.Start.Date == dt.Value.Date).ToList();
+            }
+                                                        
         }
+
+      
 
 
         public List<TvProgram> GetOneChannelThroughUserId(DateTime dt, string chnl, int id)

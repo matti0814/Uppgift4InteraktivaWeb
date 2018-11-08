@@ -25,6 +25,15 @@ namespace Uppgift4Interaktiva.Controllers
             return View(db.TvProgram.ToList());
         }
 
+        public ActionResult Channel(string channel)
+        {
+            var allChannelList = new ChannelLists();          
+            var templist = allChannelList.GetSpecificChannelAndDay(null, channel);
+            allChannelList.AllShows = templist;
+            
+            return View(allChannelList);
+        }
+
 
         public ActionResult Startpage(DateTime? selectedDT)
         {

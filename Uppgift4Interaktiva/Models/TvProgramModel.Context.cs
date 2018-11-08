@@ -26,5 +26,7 @@ namespace Uppgift4Interaktiva.Models
         }
     
         public virtual DbSet<TvProgram> TvProgram { get; set; }
+
+        public System.Data.Entity.DbSet<Uppgift4Interaktiva.Models.UserChannels> UserChannels { get; set; }
     }
 }
