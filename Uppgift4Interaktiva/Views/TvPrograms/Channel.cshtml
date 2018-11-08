@@ -12,8 +12,8 @@
 
         for (int i = 0; i < 5; i++)
 
-        { <div class="row">
-                <div class="col-sm-12 col-md-4 ">
+        { <div class="container">
+                <div class="align-content-lg-center ">
                     <div class="card bg-light mb-3">
                         <div class="card-body text-center table-responsive-lg">
 
@@ -22,6 +22,7 @@
                                     <tr>
                                         <th>Namn</th>
                                         <th>Starttid</th>
+                                        <th>Sluttid</th>
                                         <th>Datum</th>
                                     </tr>
                                 </thread>
@@ -29,17 +30,20 @@
 
                                     @foreach (var item in Model.AllShows.Where(x => x.Start.Date == idagDate))
                                     {
-                                        <tr>
-                                            <td>
-                                                @item.Name
-                                            </td>
-                                            <td>
-                                                @item.Start.TimeOfDay
-                                            </td>
-                                            <td>
-                                                @item.Start.Date
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>
+                                            @item.Name
+                                        </td>
+                                        <td>
+                                            @item.Start.TimeOfDay
+                                        </td>
+                                        <td>
+                                            @item.Stop.TimeOfDay
+                                        </td>
+                                        <td>
+                                            @item.Start.Date
+                                        </td>
+                                    </tr>
                                     }
 
                                 </tbody>
