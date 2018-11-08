@@ -13,12 +13,15 @@ namespace Uppgift4Interaktiva.Controllers
 {
     public class TvProgramsController : Controller
     {
-        private Uppgift4Entities db = new Uppgift4Entities();       
+        private Uppgift4Entities db = new Uppgift4Entities();    
 
         // GET: TvPrograms
         public ActionResult Index()
         {
-          
+            if (Session["isAdmin"] == null)
+            {
+                return RedirectToAction("Index", "LogInNow");
+            }
             return View(db.TvProgram.ToList());
         }
 
@@ -63,29 +66,26 @@ namespace Uppgift4Interaktiva.Controllers
             int userID = int.Parse(idString);
 
             var allChannelList = new ChannelLists();
-            allChannelList.RemoveChannelFromUser(userID, channel);
+            allChannelList.RemoveChannelFromUser(userID, channel);    
             return RedirectToAction("StartpageUser");
         }
 
        
         
         public ActionResult ShowChannel(int one, int two, int three, int four, int six)
-        {
+        {        
             var idString = Session["userId"].ToString();
             int userID = int.Parse(idString);
-
-            var input = new UserChannels();
+           
             var allChannelList = new ChannelLists();
-            allChannelList.RemoveChannelFromUser(userID, one);
-            allChannelList.RemoveChannelFromUser(userID, two);
-            allChannelList.RemoveChannelFromUser(userID, three);
-            allChannelList.RemoveChannelFromUser(userID, four);
-            allChannelList.RemoveChannelFromUser(userID, six);
-            allChannelList.AddChannelToUser(input, userID, one);
-            allChannelList.AddChannelToUser(input, userID, two);
-            allChannelList.AddChannelToUser(input, userID, three);
-            allChannelList.AddChannelToUser(input, userID, four);
-            allChannelList.AddChannelToUser(input, userID, six);
+
+            allChannelList.RemoveAllChannelsFromUser(userID);
+
+            allChannelList.AddChannelToUser(userID, one);
+            allChannelList.AddChannelToUser(userID, two);
+            allChannelList.AddChannelToUser(userID, three);
+            allChannelList.AddChannelToUser(userID, four);
+            allChannelList.AddChannelToUser(userID, six); 
             return RedirectToAction("StartpageUser");
         }
 
@@ -147,9 +147,8 @@ namespace Uppgift4Interaktiva.Controllers
         // POST: TvPrograms/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Genre,Start,Stop,Channel,Info")] TvProgram tvProgram)
+        [HttpPost]    
+        public ActionResult Edit([Bind(Include = "Id,Name,Genre,Start,Stop,Channel,Info,ChannelId")] TvProgram tvProgram)
         {
             if (ModelState.IsValid)
             {
