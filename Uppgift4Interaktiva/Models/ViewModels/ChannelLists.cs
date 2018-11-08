@@ -112,9 +112,11 @@ namespace Uppgift4Interaktiva.Models.ViewModels
    
         public void AddChannelToUser(int userid, int channelid)
         {
-            UserChannels uc = new UserChannels();
-            uc.UserId = userid;
-            uc.ChannelId = channelid;
+            UserChannels uc = new UserChannels
+            {
+                UserId = userid,
+                ChannelId = channelid
+            };
 
             dbUserChannels.UserChannels.Add(uc);
             dbUserChannels.SaveChanges();

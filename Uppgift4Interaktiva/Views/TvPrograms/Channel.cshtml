@@ -4,16 +4,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.AllShows.Select(x => x.Channel).First().ToString()</h2>
+<script>
+    function click10(name, channel, info) {
+
+
+        bootbox.alert({
+            message:
+                '<h1>' + name + '</h1>' +
+                '<b>Kanal: </b>' + channel + '</br>' +                
+                '<b>Programinfo: </b></br>' + info,
+
+
+
+
+
+            callback: function (result) {
+                console.log('This was logged in the callback: ' + result);
+            }
+        });
+
+
+
+    }
+</script>
+<h2 style="color:white; text-align:center;">@Model.AllShows.Select(x => x.Channel).First().ToString()</h2>
+<br />
+<br />
 
 <div class="container-fluid">
     @{
         var idagDate = new DateTime(2018, 11, 11);
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 7; i++)
 
-        { <div class="row">
-                <div class="col-sm-12 col-md-4 ">
+        { <div class="container">
+                <div class="align-content-lg-center ">
                     <div class="card bg-light mb-3">
                         <div class="card-body text-center table-responsive-lg">
 
@@ -22,6 +47,7 @@
                                     <tr>
                                         <th>Namn</th>
                                         <th>Starttid</th>
+                                        <th>Sluttid</th>
                                         <th>Datum</th>
                                     </tr>
                                 </thread>
@@ -29,17 +55,25 @@
 
                                     @foreach (var item in Model.AllShows.Where(x => x.Start.Date == idagDate))
                                     {
-                                        <tr>
-                                            <td>
-                                                @item.Name
-                                            </td>
-                                            <td>
-                                                @item.Start.TimeOfDay
-                                            </td>
-                                            <td>
-                                                @item.Start.Date
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>
+                                            @item.Name
+                                        </td>
+                                        <td>
+                                            @item.Start.TimeOfDay
+                                        </td>
+                                        <td>
+                                            @item.Stop.TimeOfDay
+                                        </td>
+                                        <td>
+                                            @item.Start.ToShortDateString()
+                                        </td>
+                                        <td>
+                                            <button type="button" id="testShow" class="btn btn-outline-dark" onclick="click10('@item.Name', '@item.Channel', '@item.Info')">
+                                                Info
+                                            </button>
+                                        </td>
+                                    </tr>
                                     }
 
                                 </tbody>
@@ -54,4 +88,4 @@
 
     }
 
-
+</div>
